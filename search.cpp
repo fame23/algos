@@ -12,8 +12,19 @@ using namespace std;
 \param [in] data The data set that will be searched
 \returns location of key if found or -1 if not found
 */
-int linearSearch(auto data, auto key);//prototype
-
+int linearSearch(auto data, auto key)
+{
+	int d = data.size();
+	int val,i;
+	for (i=0;i<=d;i++)
+	{
+		if (key == data[i])
+		{
+			return i;
+		}
+	}
+	return -1;
+}
 
 int main()
 {
@@ -41,12 +52,10 @@ int main()
        exit(1);//nothing to do but quit program
   }
  
-   cout<<endl<<"To end input type the #-character (followed by Enter)"<<endl<<endl;
-  cout<<"Enter a value to search for: ";
-
-
-   cin>>search_key;
- 
+	cout<<endl<<"To end input type the #-character (followed by Enter)"<<endl<<endl;
+	cout<<"Enter a value to search for: ";
+	cin>>search_key;
+	
     while(search_key != "#")//perform searches until sentinel entered
     {
         result = linearSearch(inputs,search_key);
@@ -57,10 +66,9 @@ int main()
           cout<<"not found";
         else
           cout<<"found at index "<<result;
-
-
-        cout<<endl<<endl<<"Enter a value to search for: ";
-        cin>>search_key; 
+          
+		  cout<<endl<<endl<<"Enter a value to search for: ";
+          cin>>search_key; 
     }
 
    cout<<endl<<"Program \"search it\" is now finished."<<endl<<endl;
